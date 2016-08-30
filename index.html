@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Testing Redux with many updates</h2>
+    <hr>
+
+    <div>
+        <div id="box" style="background-color: red; width: 100px;  height: 100px; position: relative; left: 120px;">
+            
+        </div>
+    </div>
+
+    <script src="node_modules/redux/dist/redux.js"></script>
+    <script src="node_modules/lodash/lodash.min.js"></script>
+    <script src="redux_test.js"></script>
+    <script>
+        var left = 0;
+        var dir = 1;
+
+        setInterval(() => {
+            var box = document.getElementById("box");
+            box.style.left = (left+=(5 * dir)) + "px";
+
+            if (left > 500) dir = -1;
+            if (left < 0) dir = 1;
+        }, 10);
+    </script>
+</body>
+</html>
